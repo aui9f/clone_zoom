@@ -1,0 +1,16 @@
+{
+  "name": "clone_zoom",
+  "version": "1.0.0",
+  "description": "",
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aui9f/clone_zoom.git"
+  },
+  
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aui9f/clone_zoom/issues"
+  },
+  "homepage": "https://github.com/aui9f/clone_zoom#readme"
+}
