@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ZOOM</title>
+    <link rel="stylesheet" href="../public/styles/reset.css">
+    <link rel="stylesheet" href="../public/styles/common.css">
     <script defer src="../public/js/app.js"></script>
 </head>
 <body>
     <header>
-        <h1>ZOOM</h1>
+        <div class="img"></div>
+        <div class="txt">
+            <p class="nickname"></p>
+            <div>
+                <img src="../public/images/user.png" alt="">
+                <p>2</p>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -19,10 +28,14 @@
         </form>
         <hr>
         <ul></ul>
+        
+    </main>
+    <footer>
+        <div></div>
         <form id="message">
             <input type="text" placeholder="write a msg" required>
             <input type="submit" value="SEND">
         </form>
-    </main>
+    </footer>
 </body>
 </html>

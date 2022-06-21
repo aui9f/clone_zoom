@@ -32,15 +32,16 @@ wss.on('connection', socket => {
         const {type, payload} = JSON.parse(msg);
         switch (type) {
             case 'nickname':
-                socket['nickname'] = payload; break;
+                socket['nickname'] = payload; 
+                socket.send(JSON.stringify({type: 'nickname', value: payload}))
+                break;
+
             case 'new_message': 
-                socketsDB.forEach(aSocket=>aSocket.send(`${socket.nickname}: ${payload}`))
+                // socketsDB.forEach(aSocket=>aSocket.send(`${socket.nickname}: ${payload}`))
+                socketsDB.forEach(aSocket=>aSocket.send(JSON.stringify({type: 'message', value: `${socket.nickname}: ${payload}`})))
                 break;
         }
     })
-
-    socket.send('hello');
-
 });
 
 server.listen(3000, handleListen);
