@@ -19,6 +19,17 @@ const wss = new WebSocket.Server({server});
 
 wss.on('connection', socket => {
 	console.log(socket);
+
+    socket.on('close', () => {
+		console.log('Disconnected from Browser');
+	});
+
+    socket.on('message', msg=>{
+        console.log(msg.toString())
+    })
+
+    socket.send('hello');
+
 });
 
 server.listen(3000, handleListen);
