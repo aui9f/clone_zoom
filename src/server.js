@@ -20,16 +20,26 @@ const socketsDB = [];
 
 wss.on('connection', socket => {	
     socketsDB.push(socket);
+    //익명의 사용자
+    socket['nickname'] = 'Anonymous';
+
     console.log('Connected to Browser');
     socket.on('close', () => {
 		console.log('Disconnected from Browser');
 	});
 
     socket.on('message', msg=>{
-        socketsDB.forEach(aSocket=>{
-            aSocket.send(msg.toString())
-        })
-        // socket.send(msg.toString())
+        const {type, payload} = JSON.parse(msg);
+        
+        switch (type) {
+            case 'nickname':
+                socket['nickname'] = payload; break;
+            case 'new_message': 
+                socketsDB.forEach(aSocket=>aSocket.send(`${socket.nickname}: ${payload}`))
+                break;
+            
+        }
+        
     })
 
     socket.send('hello');
