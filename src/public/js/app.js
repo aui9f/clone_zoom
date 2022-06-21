@@ -6,8 +6,11 @@ socket.addEventListener('open', ()=>{
     console.log('Connected to Server');
 })
 
+const messageList = document.querySelector('ul');
 socket.addEventListener('message', msg=>{
-    console.log('Just got this: ', msg, msg.data);
+    const li = document.createElement('li');
+    li.innerText = msg.data;
+    messageList.append(li);
 })
 
 socket.addEventListener('close', ()=>{
@@ -15,7 +18,6 @@ socket.addEventListener('close', ()=>{
 })
 
 // Form 이벤트 등록하기
-const messageList = document.querySelector('ul');
 const messageForm = document.querySelector('form');
 function handleSubmit(event){
     event.preventDefault();
