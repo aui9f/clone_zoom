@@ -7,16 +7,32 @@
     <title>Document</title>
     <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="../public/js/app.js"></script>
+    <style>
+
+    </style>
 </head>
 <body>
     <header><h1>ZOOM</h1></header>
     <main>
+
         <div id="welcome">
             <form>
-                <input type="text" placeholder="Room name" required>
-                <button type="submit">Enter Room</button>
+                <input type="text" placeholder="room name" required>
+                <button type="submit">ENTER ROOM</button>
             </form>
         </div>
+
+        <div id="room">
+            <h4></h4>
+            <ul></ul>
+            <form>
+                <input type="text" placeholder="message" required>
+                <button type="submit">SEND</button>
+            </form>
+        </div>
+       
+        
+        
     </main>
 </body>
 </html>

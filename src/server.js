@@ -16,10 +16,11 @@ const wsServer = SocketIO(httpServer)
 
 wsServer.on('connection', socket=>{ 
     socket.on('enter_room', (roomName, done) => {
-        console.log(`채팅방 이름: ${JSON.stringify(roomName)}`);
-        setTimeout(()=>{
-            done();
-        }, 5000)
+        console.log(socket.id);
+        console.log(socket.rooms);
+        socket.join(roomName.payload)
+        done();
+        console.log(socket.rooms);
     })
 });
 
