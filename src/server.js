@@ -15,7 +15,12 @@ const httpServer=http.createServer(app);
 const wsServer = SocketIO(httpServer)
 
 wsServer.on('connection', socket=>{ 
-    console.log('연결확인', socket) 
+    socket.on('enter_room', (roomName, done) => {
+        console.log(`채팅방 이름: ${JSON.stringify(roomName)}`);
+        setTimeout(()=>{
+            done();
+        }, 5000)
+    })
 });
 
 const handleListen = () => console.log('Listening on http://localhost:3000');
