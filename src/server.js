@@ -16,11 +16,10 @@ const wsServer = SocketIO(httpServer)
 
 wsServer.on('connection', socket=>{ 
     socket.on('enter_room', (roomName, done) => {
-        console.log(socket.id);
-        console.log(socket.rooms);
-        socket.join(roomName.payload)
         done();
-        console.log(socket.rooms);
+        socket.join(roomName.payload);
+        console.log("roomName.payload", roomName.payload)
+        socket.to(roomName.payload).emit('welcome');
     })
 });
 

@@ -25,11 +25,22 @@ function handleRoomSubmit(e){
 }
 function handleMsgSubmit(e){
     e.preventDefault();
-  
 }
 
+function addMessge(message){
+    const ul = room.querySelector('ul');
+    const li = document.createElement('li');
+    li.innerText = message;
+    ul.appendChild(li);
+}
 
 
 
 roomForm.addEventListener('submit', handleRoomSubmit);
 msgForm.addEventListener('submit', handleMsgSubmit);
+
+
+socket.on('welcome', ()=>{
+    console.log("??")
+    addMessge('someone joined!')
+})
